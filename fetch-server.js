@@ -45,6 +45,42 @@ app.get('/collections/:collectionName', function(req, res, next) {
     });
 });
 
+app.post('/collections/:collectionName', function(req, res, next) {
+    // validate req.body
+    req.collection.insertOne(req.body, function(err, results) {
+        if (err) {
+            return next(err);
+        }
+        res.send(results);
+    });
+});
+
+app.put('/collections/:collectionName/:id', function(req, res, next) {
+    res.collection.updateOne({_id: new ObjectId(req.params.id)},
+    {$set: req.body},
+    {safe: true, multi: false}, function(err, result) {
+        if (err) {
+            return next(err);
+        } else {
+            res.send((result.matchedCount === 1) ? {msg: "success"} : {msg: "error"});
+        }
+    });
+});
+
+app.delete('/collections/:collectionName/:id', function(req, res, next) {
+    // validate req.body
+    req.collection.deleteOne(
+        {_id: new ObjectId(req.params.id)}, function(err, results) {
+        if (err) {
+            return next(err);
+        } else {
+        res.send((results.deleteCount === 1) ? {msg: "success"} : {msg: "error"});
+        }
+    });
+});
+
+
+
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log("App on " + port );
