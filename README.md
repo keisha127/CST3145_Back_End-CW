@@ -22,4 +22,6 @@ node fetch-server.js
 
 Can access via git pages here: https://keisha127.github.io/CST3145_Front_End-CW/
 
-Link to repository: https://github.com/keisha127/CST3145-CW
+Link to front-end repository: https://github.com/keisha127/CST3145_Front_End-CW
+
+Link to back-end repository: https://github.com/keisha127/CST3145_Back_End-CW
