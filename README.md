@@ -18,8 +18,6 @@ node fetch-server.js
 #run front-end folder and it should work fine :)
 ```
 
-copy link to browser and site should appear
-
 ## Live
 
 Can access via git pages here: https://keisha127.github.io/CST3145_Front_End-CW/
