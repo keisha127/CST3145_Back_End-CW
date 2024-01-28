@@ -12,13 +12,10 @@ install code folder
 cd to folder in terminal
 
 ```bash
-#type
+#type:
 node fetch-server.js
 
-#should show something like:
-Available on:
-  http://127.0.0.1:8080
-  http://192.168.1.190:8080
+#run front-end folder and it should work fine :)
 ```
 
 copy link to browser and site should appear
