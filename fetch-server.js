@@ -13,12 +13,20 @@ var CONNECTION_STRING = "mongodb+srv://WebstoreUser:cst3145@webstorecluster.gwgx
 var databaseName = "Webstore";
 var database;
 
-app.listen(3000, () => {
+const port = process.env.PORT || 3000;
+app.listen(port, function() {
     Mongoclient.connect(CONNECTION_STRING, (error, client) => {
         database = client.db(databaseName);
         console.log("connection to database was successful");
     });
-})
+});
+
+// app.listen(3000, () => {
+//     Mongoclient.connect(CONNECTION_STRING, (error, client) => {
+//         database = client.db(databaseName);
+//         console.log("connection to database was successful");
+//     });
+// })
 
 app.get('/api/storeapp/getLessons', (req, res) => {
     database.collection("lessons").find({}).toArray((error, result) => {
